@@ -1,1 +1,1 @@
-Project VTB
+front-end part of the project
