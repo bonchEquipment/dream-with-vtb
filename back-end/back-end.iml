@@ -152,5 +152,7 @@
     <orderEntry type="library" name="Maven: io.netty:netty-handler:4.1.70.Final" level="project" />
     <orderEntry type="library" name="Maven: io.netty:netty-resolver:4.1.70.Final" level="project" />
     <orderEntry type="library" name="Maven: io.netty:netty-transport:4.1.70.Final" level="project" />
+    <orderEntry type="library" name="Maven: com.squareup.okhttp:okhttp:2.7.5" level="project" />
+    <orderEntry type="library" name="Maven: com.squareup.okio:okio:1.6.0" level="project" />
   </component>
 </module>

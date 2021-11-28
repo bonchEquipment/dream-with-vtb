@@ -1,12 +1,9 @@
-package com.example.backend.controller;
+package com.example.backend.controllers;
 
 import com.example.backend.entyties.Product;
-import com.example.backend.service.ProductService;
+import com.example.backend.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.concurrent.ExecutionException;
 

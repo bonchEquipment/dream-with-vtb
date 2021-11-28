@@ -1,4 +1,4 @@
-package com.example.backend.controller;
+package com.example.backend.controllers;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/users")
 public class UserController {
-    @GetMapping
+    @GetMapping("/get")
     public ResponseEntity getUsers(){
         try {
             return ResponseEntity.ok("Сервер работает!");
