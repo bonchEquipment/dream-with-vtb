@@ -1,5 +1,6 @@
 package com.example.backend.controllers;
 
+import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
@@ -14,6 +15,25 @@ import java.io.IOException;
 @RequestMapping("/auth")
 public class AuthorizationController {
     private String cardNumber;
+    @PostMapping("/token")
+    public String getToken() throws IOException{
+        OkHttpClient client = new OkHttpClient();
+
+        MediaType mediaType = MediaType.parse("application/json");
+
+        com.squareup.okhttp.RequestBody body = com.squareup.okhttp.RequestBody.create(mediaType, "{\"grant_type\":\"code\",\"code\":\"abuwacihiebinuzr\",\"refresh_token\":\"0f9665541d8815fdf7da9fd22f437a4544a000c22e40fbeb5af624efdf24be83\"}");
+        Request request = new Request.Builder()
+                .url("https://epa.api.vtb.ru/vtb/openapi/id.vtb.ru/oauth2/token")
+                .post(body)
+                .addHeader("Authorization", "Bearer {token}")
+                .addHeader("content-type", "application/json")
+                .addHeader("accept", "application/json")
+                .build();
+
+        Response response = client.newCall(request).execute();
+        return response.toString();
+    }
+
     @GetMapping("/login")
     public String login() throws IOException {
         OkHttpClient client = new OkHttpClient();
