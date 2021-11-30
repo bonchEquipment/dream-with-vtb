@@ -19,6 +19,7 @@ public class DreamController {
     private DreamService dreamService;
     @PostMapping("/dreams")
     public String saveProduct(@RequestBody Dream dream) throws ExecutionException, InterruptedException {
+        System.out.println(dream.toString());
         return dreamService.saveDream(dream);
     }
 }

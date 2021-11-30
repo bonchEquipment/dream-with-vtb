@@ -13,6 +13,15 @@ public class Dream {
         this.moneyToDream = moneyToDream;
     }
 
+    @Override
+    public String toString() {
+        return "Dream{" +
+                "moneyToDream=" + moneyToDream +
+                ", description='" + description + '\'' +
+                ", nameDream='" + nameDream + '\'' +
+                '}';
+    }
+
     public String getDescription() {
         return description;
     }
