@@ -3,7 +3,7 @@ package com.example.backend.entyties;
 public class Dream {
     private Integer moneyToDream = null;
     private String description = null;
-    private String nameDream = null;
+    private String nameDream ;
 
     public Integer getMoneyToDream() {
         return moneyToDream;
