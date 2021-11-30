@@ -15,7 +15,7 @@ import java.io.IOException;
 public class ManageCardService {
     String resource  = "http://hackaton.bankingapi.ru";
     String accessToken = "AQIC5wM2LY4SfcxjIMtc7JUj2_-LM3exxfbgqbbX5AQcCvE.*AAJTSQACMDIAAlNLABMzNTQwOTA3NzQ1Njc4Nzg5NTUzAAJTMQACMDE.*";
-    public void createBankCard(BankCard bankCard) throws IOException {
+    public void createBankCard() throws IOException {
         OkHttpClient client = new OkHttpClient();
 
         MediaType mediaType = MediaType.parse("application/json");
