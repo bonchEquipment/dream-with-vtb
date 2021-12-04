@@ -1,6 +1,6 @@
 package com.example.backend.controllers;
 
-import com.example.backend.entyties.Dream;
+import com.example.backend.entyties.DreamEntity;
 import com.example.backend.services.DreamService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +17,8 @@ public class DreamController {
     @Autowired
     private DreamService dreamService;
     @PostMapping("/dreams")
-    public String saveProduct(@RequestBody Dream dream) throws ExecutionException, InterruptedException {
-        System.out.println(dream.toString());
-        return dreamService.saveDream(dream);
+    public String saveProduct(@RequestBody DreamEntity dreamEntity) throws ExecutionException, InterruptedException {
+        System.out.println(dreamEntity.toString());
+        return dreamService.saveDream(dreamEntity);
     }
 }

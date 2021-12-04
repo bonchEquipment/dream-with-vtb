@@ -1,6 +1,5 @@
 package com.example.backend.services;
 
-import com.example.backend.entyties.BankCard;
 import org.springframework.stereotype.Service;
 
 import com.squareup.okhttp.MediaType;
@@ -14,7 +13,8 @@ import java.io.IOException;
 @Service
 public class ManageCardService {
     String resource  = "http://hackaton.bankingapi.ru";
-    String accessToken = "AQIC5wM2LY4SfcxjIMtc7JUj2_-LM3exxfbgqbbX5AQcCvE.*AAJTSQACMDIAAlNLABMzNTQwOTA3NzQ1Njc4Nzg5NTUzAAJTMQACMDE.*";
+    String accessToken = "";
+
     public void createBankCard() throws IOException {
         OkHttpClient client = new OkHttpClient();
 

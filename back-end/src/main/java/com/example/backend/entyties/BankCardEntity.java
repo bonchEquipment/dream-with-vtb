@@ -1,6 +1,6 @@
 package com.example.backend.entyties;
 
-public class BankCard {
+public class BankCardEntity {
     String PAN;
     String embossingName;
     String cardExpiry;
