@@ -40,7 +40,8 @@ public class AuthorizationController {
 
         MediaType mediaType = MediaType.parse("application/json");
 
-        com.squareup.okhttp.RequestBody body = com.squareup.okhttp.RequestBody.create(mediaType, "{\"grant_type\":\"code\",\"code\":\"abuwacihiebinuzr\",\"refresh_token\":\"0f9665541d8815fdf7da9fd22f437a4544a000c22e40fbeb5af624efdf24be83\"}");
+        com.squareup.okhttp.RequestBody body = com.squareup.okhttp.RequestBody.create(mediaType,
+                "{\"grant_type\":\"code\",\"code\":\"abuwacihiebinuzr\",\"refresh_token\":\"0f9665541d8815fdf7da9fd22f437a4544a000c22e40fbeb5af624efdf24be83\"}");
         Request request = new Request.Builder()
                 .url("https://epa.api.vtb.ru/vtb/openapi/id.vtb.ru/oauth2/token")
                 .post(body)

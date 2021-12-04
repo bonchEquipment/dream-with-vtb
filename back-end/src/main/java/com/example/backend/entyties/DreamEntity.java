@@ -1,6 +1,8 @@
 package com.example.backend.entyties;
 
-public class Dream {
+import javax.persistence.Entity;
+
+public class DreamEntity {
     private Integer moneyToDream = null;
     private String description = null;
     private String nameDream = null;
@@ -15,7 +17,7 @@ public class Dream {
 
     @Override
     public String toString() {
-        return "Dream{" +
+        return "DreamEntity{" +
                 "moneyToDream=" + moneyToDream +
                 ", description='" + description + '\'' +
                 ", nameDream='" + nameDream + '\'' +
