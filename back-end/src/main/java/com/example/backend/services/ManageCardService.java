@@ -1,5 +1,6 @@
 package com.example.backend.services;
 
+import com.example.backend.pojo.requests.BankCardRq;
 import org.springframework.stereotype.Service;
 
 import com.squareup.okhttp.MediaType;
@@ -13,9 +14,13 @@ import java.io.IOException;
 @Service
 public class ManageCardService {
     String resource  = "http://hackaton.bankingapi.ru";
-    String accessToken = "";
+    private String xMdmId;
+    private String authorizationToken;
+    private String xClientChannel;
+    private String xPartnerId;
+    private String xGlobalTransactionID;
 
-    public void createBankCard() throws IOException {
+    public void createBankCard(BankCardRq bankCardRq) throws IOException {
         OkHttpClient client = new OkHttpClient();
 
         MediaType mediaType = MediaType.parse("application/json");
@@ -23,12 +28,12 @@ public class ManageCardService {
         Request request = new Request.Builder()
                 .url(resource+"/api/rb/dks/cardemission/hackathon/v1")
                 .post(body)
-                .addHeader("X-IBM-Client-Id", "ИД клиента")
-                .addHeader("X-Mdm-Id", "REPLACE_THIS_VALUE")
-                .addHeader("X-Global-Transaction-ID", "REPLACE_THIS_VALUE")
-                .addHeader("Authorization", accessToken)
-                .addHeader("x-client-channel", "REPLACE_THIS_VALUE")
-                .addHeader("X-PARTNER-ID", "REPLACE_THIS_VALUE")
+                .addHeader("X-IBM-Client-Id", bankCardRq.getxIBMClientId())
+                .addHeader("X-Mdm-Id", xMdmId)
+                .addHeader("X-Global-Transaction-ID", xGlobalTransactionID)
+                .addHeader("Authorization", bankCardRq.getAccessToken())
+                .addHeader("x-client-channel", xClientChannel)
+                .addHeader("X-PARTNER-ID", xPartnerId)
                 .addHeader("content-type", "application/json")
                 .addHeader("accept", "application/json")
                 .build();

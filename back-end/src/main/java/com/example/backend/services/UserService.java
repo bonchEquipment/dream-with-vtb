@@ -1,13 +1,22 @@
 package com.example.backend.services;
 
+import com.example.backend.entyties.UserEntity;
 import com.example.backend.pojo.responses.AuthVTBTokensRsp;
+import com.example.backend.repositories.UserRepo;
 import com.squareup.okhttp.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.util.concurrent.ExecutionException;
 
 @Service
 public class UserService {
+
+    @Autowired
+    private UserRepo userRepo;
+
     public AuthVTBTokensRsp getVTBTokens() throws IOException {
         OkHttpClient client = new OkHttpClient();
 
@@ -27,4 +36,9 @@ public class UserService {
         System.out.println(response.body().toString());
         return null;
     }
+
+    public void saveUserToDB(UserEntity userEntity) throws ExecutionException, InterruptedException {
+       userRepo.saveUser(userEntity);
+    }
+
 }
