@@ -20,4 +20,10 @@ public class UserRepo {
                 .document(userEntity.getUserId()).set(userEntity);
         return collectionApiFuture.get().getUpdateTime().toString();
     }
+
+    public UserEntity getUser(String userId){
+        Firestore dbFirestore = FirestoreClient.getFirestore();
+        return (UserEntity) dbFirestore.collection(COLLECTION_NAME)
+                .document(userId).get();
+    }
 }

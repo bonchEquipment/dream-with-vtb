@@ -22,20 +22,9 @@ public class AuthorizationController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/tokenApi")
+    @PostMapping("/tokenApi")
     public String getTokenApi() throws IOException, InterruptedException {
-        OkHttpClient client = new OkHttpClient();
-
-        Request request = new Request.Builder()
-                .url("https://epa.api.vtb.ru/vtb/openapi/id.vtb.ru/oauth2/authorize?redirect_uri=https://vk.com/&state=FDsdfsS&client_id=5445654378901234&response_type=code")
-                .get()
-                .addHeader("Authorization", "Bearer {AQIC5wM2LY4SfcyBy2fw4_k-7N4eWXik7wtV_T15gjXhrRM.*AAJTSQACMDIAAlNLABI3NTM0NzYwNDQ4NTA5NzgwODQAAlMxAAIwMQ..*}")
-                .addHeader("accept", "application/json")
-                .build();
-
-        Response response = client.newCall(request).execute();
-        System.out.println(response.toString());
-        return response.toString();
+        return userService.getVTBTokens().toString();
     }
 
     @PostMapping("/token")
@@ -49,7 +38,7 @@ public class AuthorizationController {
         Request request = new Request.Builder()
                 .url("https://epa.api.vtb.ru/vtb/openapi/id.vtb.ru/oauth2/token")
                 .post(body)
-                .addHeader("Authorization", "Bearer {AQIC5wM2LY4SfcxO-qS9OacuR7WT0UASwsau4UNKpsF0mSE.*AAJTSQACMDIAAlNLABQtNjc2ODMyMTg2MTA4MDkyNzkxOAACUzEAAjAx*}")
+                .addHeader("Authorization", "Bearer {token}")
                 .addHeader("content-type", "application/json")
                 .addHeader("accept", "application/json")
                 .build();
@@ -61,14 +50,12 @@ public class AuthorizationController {
     @GetMapping("/login")
     public String login() throws IOException {
         OkHttpClient client = new OkHttpClient();
-
         Request request = new Request.Builder()
                 .url("https://epa.api.vtb.ru/vtb/openapi/id.vtb.ru/oauth2/authorize?redirect_uri=https://vk.com/&state=FDsdfsS&client_id=5445654378901234&response_type=code")
                 .get()
                 .addHeader("Authorization", "Bearer {AQIC5wM2LY4SfcyBy2fw4_k-7N4eWXik7wtV_T15gjXhrRM.*AAJTSQACMDIAAlNLABI3NTM0NzYwNDQ4NTA5NzgwODQAAlMxAAIwMQ..*}")
                 .addHeader("accept", "application/json")
                 .build();
-
         Response response = client.newCall(request).execute();
         System.out.println(response.toString());
         return response.toString();

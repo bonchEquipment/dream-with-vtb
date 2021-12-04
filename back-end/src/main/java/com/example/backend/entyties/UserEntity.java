@@ -6,7 +6,7 @@ import java.util.Map;
 
 public class UserEntity {
     private Map<String, DreamEntity> dreams = new HashMap();
-    private BankCardEntity dreamsMoneyCard;
+    private BankCardEntity dreamsMoneyCard =null;
     private String userId; //номер карты по, которой прошла авторизация
 
     public Map<String, DreamEntity> getDreams() {
