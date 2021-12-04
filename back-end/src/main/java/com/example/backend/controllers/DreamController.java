@@ -1,7 +1,6 @@
 package com.example.backend.controllers;
 
 import com.example.backend.entyties.Dream;
-import com.example.backend.entyties.Product;
 import com.example.backend.services.DreamService;
 
 import org.springframework.beans.factory.annotation.Autowired;

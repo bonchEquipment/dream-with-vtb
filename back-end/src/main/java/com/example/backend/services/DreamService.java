@@ -1,7 +1,6 @@
 package com.example.backend.services;
 
 import com.example.backend.entyties.Dream;
-import com.example.backend.entyties.Product;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.WriteResult;
