@@ -1,6 +1,7 @@
 package com.example.backend.controllers;
 
 
+import com.example.backend.services.UserService;
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
@@ -17,6 +18,9 @@ import java.io.IOException;
 @RequestMapping("/auth")
 public class AuthorizationController {
     private String cardNumber;
+
+    @Autowired
+    private UserService userService;
 
     @GetMapping("/tokenApi")
     public String getTokenApi() throws IOException, InterruptedException {
