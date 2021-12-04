@@ -1,6 +1,5 @@
 package com.example.backend.entyties;
 
-import javax.persistence.Entity;
 
 public class DreamEntity {
     private Integer moneyToDream = null;
