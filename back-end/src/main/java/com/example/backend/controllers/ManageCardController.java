@@ -19,4 +19,8 @@ public class ManageCardController {
         manageCardService.createBankCard();
     }
 
+    public void executePayment() throws IOException {
+
+    }
+
 }
