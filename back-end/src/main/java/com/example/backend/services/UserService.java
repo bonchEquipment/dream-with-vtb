@@ -1,6 +1,6 @@
 package com.example.backend.services;
 
-import com.example.backend.pojo.responses.AuthVTBTokensResponse;
+import com.example.backend.pojo.responses.AuthVTBTokensRsp;
 import com.squareup.okhttp.*;
 import org.springframework.stereotype.Service;
 
@@ -8,7 +8,7 @@ import java.io.IOException;
 
 @Service
 public class UserService {
-    public AuthVTBTokensResponse getVTBTokens() throws IOException {
+    public AuthVTBTokensRsp getVTBTokens() throws IOException {
         OkHttpClient client = new OkHttpClient();
 
         MediaType mediaType = MediaType.parse("application/json");

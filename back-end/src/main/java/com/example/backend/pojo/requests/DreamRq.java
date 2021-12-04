@@ -1,4 +1,4 @@
 package com.example.backend.pojo.requests;
 
-public class Dream {
+public class DreamRq {
 }

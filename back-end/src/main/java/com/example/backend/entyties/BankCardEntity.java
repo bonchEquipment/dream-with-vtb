@@ -1,10 +1,10 @@
 package com.example.backend.entyties;
 
 public class BankCardEntity {
-    String PAN;
-    String embossingName;
-    String cardExpiry;
-    String publicId;
+    String PAN; //"489350******8081" - Маскированый PAN
+    String embossingName; //"ИМЯ ФАМИЛИЯ"
+    String cardExpiry; //"MM/yy" - Дата окончания действия карты
+    String publicId; //"2991748655611904" - Публичный идентификатор продукта
 
     public String getPAN() {
         return PAN;
