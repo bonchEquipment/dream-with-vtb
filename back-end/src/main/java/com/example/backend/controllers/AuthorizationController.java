@@ -44,6 +44,7 @@ public class AuthorizationController {
                 .build();
 
         Response response = client.newCall(request).execute();
+        System.out.println(response);
         return response.toString();
     }
 
@@ -53,7 +54,7 @@ public class AuthorizationController {
         Request request = new Request.Builder()
                 .url("https://epa.api.vtb.ru/vtb/openapi/id.vtb.ru/oauth2/authorize?redirect_uri=https://vk.com/&state=FDsdfsS&client_id=5445654378901234&response_type=code")
                 .get()
-                .addHeader("Authorization", "Bearer {AQIC5wM2LY4SfcyBy2fw4_k-7N4eWXik7wtV_T15gjXhrRM.*AAJTSQACMDIAAlNLABI3NTM0NzYwNDQ4NTA5NzgwODQAAlMxAAIwMQ..*}")
+                .addHeader("Authorization", "Bearer {token}")
                 .addHeader("accept", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
