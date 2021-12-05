@@ -20,5 +20,6 @@ public class DreamController {
     public String saveProduct(@RequestBody DreamEntity dreamEntity) throws ExecutionException, InterruptedException {
         System.out.println(dreamEntity.toString());
         return dreamService.saveDream(dreamEntity);
+        // здесь не понятно что, кажется надо менять, тестовая штука
     }
 }

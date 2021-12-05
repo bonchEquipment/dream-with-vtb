@@ -1,6 +1,5 @@
 package com.example.backend.entyties;
 
-
 public class DreamEntity {
     private Integer moneyToDream = null;
     private String description = null;

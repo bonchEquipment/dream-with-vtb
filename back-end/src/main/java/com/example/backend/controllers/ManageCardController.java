@@ -16,7 +16,7 @@ public class ManageCardController {
 
     @PostMapping("/create")
     public void createBankCard(@RequestBody BankCardRq bankCardRqReq) throws IOException {
-        manageCardService.createBankCard();
+        manageCardService.createBankCard(bankCardRqReq);
     }
 
     public void executePayment() throws IOException {
