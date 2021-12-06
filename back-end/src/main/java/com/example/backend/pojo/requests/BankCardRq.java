@@ -1,5 +1,6 @@
 package com.example.backend.pojo.requests;
 
+
 public class BankCardRq {
     private String accessToken;
     private String userId;

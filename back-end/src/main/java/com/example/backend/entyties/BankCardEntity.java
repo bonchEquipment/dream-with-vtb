@@ -5,6 +5,7 @@ public class BankCardEntity {
     String embossingName; //"ИМЯ ФАМИЛИЯ"
     String cardExpiry; //"MM/yy" - Дата окончания действия карты
     String publicId; //"2991748655611904" - Публичный идентификатор продукта
+    int value = 0; //деньги
 
     public String getPAN() {
         return PAN;
@@ -36,5 +37,13 @@ public class BankCardEntity {
 
     public void setPublicId(String publicId) {
         this.publicId = publicId;
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
     }
 }
