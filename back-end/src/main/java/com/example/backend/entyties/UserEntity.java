@@ -1,35 +1,60 @@
 package com.example.backend.entyties;
 
 
-import java.util.HashMap;
-import java.util.Map;
+import javax.persistence.*;
+import java.util.List;
 
+@Entity(name = "users")
 public class UserEntity {
-    private Map<String, DreamEntity> dreams = new HashMap();
-    private BankCardEntity dreamsMoneyCard =null;
-    private String userId; //номер карты по, которой прошла авторизация
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long userId;
+    @OneToMany(targetEntity = DreamEntity.class, cascade =  CascadeType.ALL)
+    @JoinColumn( referencedColumnName = "userId")
+    private List<DreamEntity> dreams;
+    @OneToMany(targetEntity = BankCardEntity.class, cascade =  CascadeType.ALL)
+    @JoinColumn( referencedColumnName = "userId")
+    private List<BankCardEntity> dreamsMoneyCard;
+    private String cardId; //номер карты по, которой прошла авторизация
 
-    public Map<String, DreamEntity> getDreams() {
+    public UserEntity(List<DreamEntity> dreams, List<BankCardEntity> dreamsMoneyCard, String cardId) {
+        this.dreams = dreams;
+        this.dreamsMoneyCard = dreamsMoneyCard;
+        this.cardId = cardId;
+    }
+
+    public UserEntity() {
+    }
+
+    public List<DreamEntity> getDreams() {
         return dreams;
     }
 
-    public void setDreams(Map<String, DreamEntity> dreams) {
+    public void setDreams(List<DreamEntity> dreams) {
         this.dreams = dreams;
     }
 
-    public BankCardEntity getDreamsMoneyCard() {
-        return dreamsMoneyCard;
-    }
-
-    public void setDreamsMoneyCard(BankCardEntity dreamsMoneyCard) {
-        this.dreamsMoneyCard = dreamsMoneyCard;
-    }
-
-    public String getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
+    }
+
+    public List<BankCardEntity> getDreamsMoneyCard() {
+        return dreamsMoneyCard;
+    }
+
+    public void setDreamsMoneyCard(List<BankCardEntity> dreamsMoneyCard) {
+        this.dreamsMoneyCard = dreamsMoneyCard;
+    }
+
+    public String getCardId() {
+        return cardId;
+    }
+
+    public void setCardId(String cardId) {
+        this.cardId = cardId;
     }
 }
