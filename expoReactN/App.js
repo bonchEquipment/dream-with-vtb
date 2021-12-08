@@ -1,7 +1,6 @@
 
 import React from 'react';
-import {Index} from "./Components/pages";
-import MainStack from './navigate'
+import MainStack from './security/navigation';
 
 
 export default function App() {
@@ -9,5 +8,6 @@ export default function App() {
         <MainStack/>
     );
 }
+
 
 
