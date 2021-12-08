@@ -1,9 +1,27 @@
 package com.example.backend.entyties;
 
+import javax.persistence.*;
+
+@Entity(name = "dreams")
 public class DreamEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long dreamId;
     private Integer moneyToDream = null;
     private String description = null;
-    private String nameDream = null;
+    private String dreamName = null;
+    private int userId;
+    private int priorityLevel;
+
+
+    public DreamEntity() {
+    }
+
+    public DreamEntity(Integer moneyToDream, String description, String dreamName) {
+        this.moneyToDream = moneyToDream;
+        this.description = description;
+        this.dreamName = dreamName;
+    }
 
     public Integer getMoneyToDream() {
         return moneyToDream;
@@ -16,9 +34,11 @@ public class DreamEntity {
     @Override
     public String toString() {
         return "DreamEntity{" +
-                "moneyToDream=" + moneyToDream +
+                "dreamId=" + dreamId +
+                ", moneyToDream=" + moneyToDream +
                 ", description='" + description + '\'' +
-                ", nameDream='" + nameDream + '\'' +
+                ", dreamName='" + dreamName + '\'' +
+                ", userId=" + userId +
                 '}';
     }
 
@@ -30,11 +50,11 @@ public class DreamEntity {
         this.description = description;
     }
 
-    public String getNameDream() {
-        return nameDream;
+    public String getDreamName() {
+        return dreamName;
     }
 
-    public void setNameDream(String nameDream) {
-        this.nameDream = nameDream;
+    public void setDreamName(String nameDream) {
+        this.dreamName = nameDream;
     }
 }
