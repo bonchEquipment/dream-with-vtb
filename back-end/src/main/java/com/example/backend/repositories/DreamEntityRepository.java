@@ -1,6 +1,6 @@
 package com.example.backend.repositories;
 
-import example.entities.DreamEntity;
+import com.example.backend.entyties.DreamEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

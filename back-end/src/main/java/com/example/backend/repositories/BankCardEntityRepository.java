@@ -1,6 +1,8 @@
 package com.example.backend.repositories;
 
-import example.entities.BankCardEntity;
+
+
+import com.example.backend.entyties.BankCardEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

@@ -1,6 +1,6 @@
 package com.example.backend.repositories;
 
-import example.entities.UserEntity;
+import com.example.backend.entyties.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
