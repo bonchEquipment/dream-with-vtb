@@ -4,7 +4,7 @@ import com.example.backend.entyties.BankCardEntity;
 import com.example.backend.exceptions.BankCardIsAlreadyCreatedException;
 import com.example.backend.exceptions.BankCardIsNotEmptyException;
 import com.example.backend.pojo.requests.BankCardRq;
-import com.example.backend.repositories.UserRepo;
+import com.example.backend.repositories.UserEntityRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,10 +27,10 @@ public class ManageCardService {
     // private String xGlobalTransactionID;
 
     @Autowired
-    private UserRepo userRepo;
+    private UserEntityRepository userEntityRepository;
 
     public BankCardEntity createBankCard(BankCardRq bankCardRq) throws IOException, BankCardIsAlreadyCreatedException {
-        if (userRepo.getUser(bankCardRq.getUserId()).getDreamsMoneyCard() == null) {
+        if (userEntityRepository.getById(Long.parseLong(bankCardRq.getUserId())).getDreamsMoneyCard() == null) {
             OkHttpClient client = new OkHttpClient();
 
             MediaType mediaType = MediaType.parse("application/json");
@@ -60,7 +60,7 @@ public class ManageCardService {
     }
 
     public Response closeBankCard(BankCardRq bankCardRq) throws BankCardIsNotEmptyException, IOException {
-        if(userRepo.getUser(bankCardRq.getUserId()).getDreamsMoneyCard().getValue() == 0){
+
             OkHttpClient client = new OkHttpClient();
 
             Request request = new Request.Builder()
@@ -79,9 +79,7 @@ public class ManageCardService {
 
             return response;
 
-        }else{
-            throw new BankCardIsNotEmptyException();
-        }
+
     }
 
 }
