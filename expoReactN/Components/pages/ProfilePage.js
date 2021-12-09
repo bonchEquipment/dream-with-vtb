@@ -1,61 +1,56 @@
 import {Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 
-import React from "react";
+import React, {useState} from "react";
 import SemiCircleProgress from "../SemiCircleProgress";
+import {useAuth} from "../../security/useAuth";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function ProfilePage({navigation}){
-    const loadScene = () =>{
-        navigation.navigate("Auth/confirm");
+    const { isAuth, setIsAuth } = useAuth()
 
+    const authHandler = async () => {
+        await AsyncStorage.setItem('token', 'w23eefq234Ad')
+        setIsAuth(false)
     }
+
 
     return (
 
-        <View style={styles.content}>
-            <View>
-                <SemiCircleProgress    circleRadius={100} percentage={35} progressWidth={5}   progressColor={"dodgerblue"} >
-                    <Text style={{ fontSize: 32, color: "dodgerblue" }}>35%</Text>
-                </SemiCircleProgress>
+        <View style={styles.viewStyle}>
+
+            <View style={{flex: 1, flexDirection: 'row', justifyContent: 'flex-start'}}>
+                <TouchableOpacity underlayColor="#ffffff00"  onPress={authHandler}>
+                    <Image source={require('../../assets/logout.png')} style={styles.imageStyle}/>
+                </TouchableOpacity>
+            <TouchableOpacity nderlayColor="#ffffff00"  onPress={authHandler}>
+                <Text style={{marginTop:18,marginLeft:10}}>Выйти</Text>
+            </TouchableOpacity>
             </View>
-            <View style={styles.textContainer}>
-                <Text style={styles.mainText}>
-                    Приблизили вас к мечте
-                </Text>
-                <Text style={styles.signMonths}>за этот месяц</Text>
-                <Text style={styles.signSuccess}>
-                    Это на 200% больше предыдущего месяца
-                </Text>
-            </View>
+
         </View>
 
 
     )
+
 }
 
-
-const styles = StyleSheet.create( {
-        content: {
-            backgroundColor:"white",
-            alignItems: 'center',
-            flex: 0,
-            justifyContent: 'center'
-        },
-        textContainer:{
-            textAlign:"center",
-            marginTop:10
-        },
-        mainText:{
-            textAlign: "center"
-        },
-        signSuccess:{
-            color:"dodgerblue",
-            textAlign: "center",
-            marginTop: 10
-        },
-        signMonths:{
-            textDecorationLine: "underline",
-            textAlign: "center"
-
-        }
-    }
-)
+const styles = StyleSheet.create({
+    viewStyle: {
+        marginLeft: 0,
+        flex: 0,
+        flexDirection: 'row',
+        backgroundColor: "white"
+    },
+    imageStyle: {
+        flex: 0,
+        marginTop: 10,
+        marginLeft: 10,
+        width: 36,
+        height: 36,
+        borderRadius: 36 / 2,
+        overflow: "hidden",
+        borderWidth: 1,
+        borderColor: "gray",
+        backgroundColor: "white"
+    },
+})
