@@ -5,19 +5,16 @@ import Progress from "./Progress";
 import Dreams from "./Dreams";
 
 export default function MainPage({navigation}) {
+
     return (
         <View style={styles.viewStyle}>
-            <View>
-                <TouchableWithoutFeedback>
-                    <Header style={styles.header} navigation={navigation}/>
-                </TouchableWithoutFeedback>
-                <View style={styles.progress}>
-                    <Progress/>
-                </View>
-                <TouchableWithoutFeedback>
-                    <Dreams/>
-                </TouchableWithoutFeedback>
+            <Header style={styles.header} navigation={navigation}/>
+
+            <View style={styles.progress}>
+                <Progress/>
             </View>
+
+            <Dreams/>
 
         </View>
 

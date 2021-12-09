@@ -1,12 +1,19 @@
-import {Image, StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, View} from "react-native";
+import {
+    Image,
+    StyleSheet,
+    Text,
+    TouchableHighlight,
+    TouchableOpacity,
+    TouchableWithoutFeedback,
+    View
+} from "react-native";
 import React from "react";
 
 export default function Header({navigation}){
-    const loadScene = () =>{
-        navigation.navigate("Auth/confirm");
+    const loadSceneProfile = () => {
+        navigation.navigate("ProfilePage");
 
     }
-
     return (
 
             <View style={styles.viewStyle}>
@@ -16,9 +23,9 @@ export default function Header({navigation}){
                 </View>
 
                 <View style={{ flex:1, flexDirection: 'row', justifyContent: 'flex-end' }}>
-                    <TouchableOpacity onPress={loadScene}>
+                    <TouchableHighlight ={loadSceneProfile()}>
                         <Image source={require('../../../assets/profile_icon.jpg')} style={styles.profileStyle} />
-                    </TouchableOpacity>
+                    </TouchableHighlight>
                 </View>
             </View>
 
