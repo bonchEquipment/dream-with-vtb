@@ -53,6 +53,30 @@ public class DreamEntity {
                 '}';
     }
 
+    public Long getDreamId() {
+        return dreamId;
+    }
+
+    public void setDreamId(Long dreamId) {
+        this.dreamId = dreamId;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public int getPriorityLevel() {
+        return priorityLevel;
+    }
+
+    public void setPriorityLevel(int priorityLevel) {
+        this.priorityLevel = priorityLevel;
+    }
+
     public String getDescription() {
         return description;
     }
