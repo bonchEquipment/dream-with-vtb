@@ -17,10 +17,21 @@ public class DreamEntity {
     public DreamEntity() {
     }
 
-    public DreamEntity(Integer moneyToDream, String description, String dreamName) {
+    public DreamEntity(Long dreamId, Integer moneyToDream, String description, String dreamName, int userId, int priorityLevel) {
+        this.dreamId = dreamId;
         this.moneyToDream = moneyToDream;
         this.description = description;
         this.dreamName = dreamName;
+        this.userId = userId;
+        this.priorityLevel = priorityLevel;
+    }
+
+    public DreamEntity(Integer moneyToDream, String description, String dreamName, int userId, int priorityLevel) {
+        this.moneyToDream = moneyToDream;
+        this.description = description;
+        this.dreamName = dreamName;
+        this.userId = userId;
+        this.priorityLevel = priorityLevel;
     }
 
     public Integer getMoneyToDream() {
@@ -40,6 +51,30 @@ public class DreamEntity {
                 ", dreamName='" + dreamName + '\'' +
                 ", userId=" + userId +
                 '}';
+    }
+
+    public Long getDreamId() {
+        return dreamId;
+    }
+
+    public void setDreamId(Long dreamId) {
+        this.dreamId = dreamId;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public int getPriorityLevel() {
+        return priorityLevel;
+    }
+
+    public void setPriorityLevel(int priorityLevel) {
+        this.priorityLevel = priorityLevel;
     }
 
     public String getDescription() {
