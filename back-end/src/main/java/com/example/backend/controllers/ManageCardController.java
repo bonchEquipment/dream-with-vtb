@@ -4,6 +4,7 @@ import com.example.backend.entyties.BankCardEntity;
 import com.example.backend.exceptions.BankCardIsAlreadyCreatedException;
 import com.example.backend.exceptions.BankCardIsNotEmptyException;
 import com.example.backend.pojo.requests.BankCardRq;
+import com.example.backend.repositories.BankCardEntityRepository;
 import com.example.backend.services.ManageCardService;
 import com.squareup.okhttp.Response;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,18 +19,22 @@ import java.util.Optional;
 public class ManageCardController {
 
 
+
     private final ManageCardService manageCardService;
+    private final BankCardEntityRepository bankCardEntityRepository;
 
     @Autowired
-    public ManageCardController(ManageCardService manageCardService) {
+    public ManageCardController(ManageCardService manageCardService, BankCardEntityRepository bankCardEntityRepository) {
         this.manageCardService = manageCardService;
+        this.bankCardEntityRepository = bankCardEntityRepository;
     }
 
     @PostMapping("/create")
     public ResponseEntity<?> createBankCard(@RequestBody BankCardRq bankCardRqReq) throws IOException {
         try {
-            BankCardEntity response = manageCardService.createBankCard(bankCardRqReq);
-            return ResponseEntity.ok().body(response);
+            BankCardEntity bankCardEntity = manageCardService.createBankCard(bankCardRqReq);
+            bankCardEntityRepository.save(bankCardEntity);
+            return ResponseEntity.ok().body(bankCardEntity);
         }catch (BankCardIsAlreadyCreatedException e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }catch (Exception e){
