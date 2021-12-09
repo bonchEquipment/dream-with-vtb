@@ -18,4 +18,12 @@ public class DreamService {
         dreamEntityRepository.save(dreamEntity);
         return "success";
     }
+
+
+    public String updateDream(long id, DreamEntity dreamEntity){
+        dreamEntity.setDreamId(id);
+        dreamEntityRepository.save(dreamEntity);
+        return "Dream with id " + id + " was successfully updated";
+    }
+
 }
