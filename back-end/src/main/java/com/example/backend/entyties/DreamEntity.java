@@ -17,10 +17,21 @@ public class DreamEntity {
     public DreamEntity() {
     }
 
-    public DreamEntity(Integer moneyToDream, String description, String dreamName) {
+    public DreamEntity(Long dreamId, Integer moneyToDream, String description, String dreamName, int userId, int priorityLevel) {
+        this.dreamId = dreamId;
         this.moneyToDream = moneyToDream;
         this.description = description;
         this.dreamName = dreamName;
+        this.userId = userId;
+        this.priorityLevel = priorityLevel;
+    }
+
+    public DreamEntity(Integer moneyToDream, String description, String dreamName, int userId, int priorityLevel) {
+        this.moneyToDream = moneyToDream;
+        this.description = description;
+        this.dreamName = dreamName;
+        this.userId = userId;
+        this.priorityLevel = priorityLevel;
     }
 
     public Integer getMoneyToDream() {
