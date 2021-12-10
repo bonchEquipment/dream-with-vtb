@@ -57,4 +57,19 @@ public class AuthorizationController {
         System.out.println(response.toString());
         return ResponseEntity.ok().body(response.body().string());
     }
+    @GetMapping("/logout")
+    public ResponseEntity<?> logout() throws IOException, InterruptedException {
+        OkHttpClient client = new OkHttpClient();
+
+        Request request = new Request.Builder()
+                .url("https://hackaton.bankingapi.ru/api/vtbid/v1/oidc/logout")
+                .get()
+                .addHeader("Authorization", "Bearer "+getTokenApi())
+                .addHeader("accept", "application/json")
+                .build();
+
+        Response response = client.newCall(request).execute();
+    return ResponseEntity.ok().body(response);
+    }
+
 }
