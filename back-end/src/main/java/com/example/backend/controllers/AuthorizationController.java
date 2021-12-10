@@ -23,7 +23,7 @@ public class AuthorizationController {
 
     @PostMapping("/tokenApi")
     public String getTokenApi() throws IOException, InterruptedException {
-        return userService.getVTBTokens().toString();
+        return userService.getVTBTokens();
     }
 
 
