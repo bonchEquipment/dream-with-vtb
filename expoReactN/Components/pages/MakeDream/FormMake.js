@@ -4,17 +4,18 @@ import InteractiveTextInput from "react-native-text-input-interactive";
 import {useAuth} from "../../../security/useAuth";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-export default function FormMake() {
+export default function FormMake({navigation}) {
     const some = () => {
         ToastAndroid.show("Не успели подвязать бэк к frontend", ToastAndroid.SHORT)
     }
+
+    const loadSetDreamScene = () =>{
+        navigation.navigate("SetDream")
+    }
+
     const [name, setName] = useState('')
     const {value, setValue} = useState(0)
 
-    const authHandler = async () => {
-        await AsyncStorage.setItem('token', 'w23eefq234Ad')
-        setIsAuth(true)
-    }
 
     return (
         <View style={styles.viewStyle}>
@@ -27,7 +28,7 @@ export default function FormMake() {
                                       placeholder='Сумма'/>
             </View>
 
-            <TouchableOpacity onPress={some} style={styles.buttonOneStyle}>
+            <TouchableOpacity onPress={loadSetDreamScene} style={styles.buttonOneStyle}>
                 <Text  style={{textAlign: "center",color:"dodgerblue",}} >Выбрать план</Text>
             </TouchableOpacity>
 
