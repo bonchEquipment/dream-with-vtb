@@ -16,11 +16,21 @@ public class UserEntity {
     @JoinColumn( referencedColumnName = "userId")
     private List<BankCardEntity> dreamsMoneyCard;
     private String cardId; //номер карты по, которой прошла авторизация
+    private int amountOfMoneySpentInPreviousMonth;
 
-    public UserEntity(List<DreamEntity> dreams, List<BankCardEntity> dreamsMoneyCard, String cardId) {
+    public UserEntity(List<DreamEntity> dreams, List<BankCardEntity> dreamsMoneyCard, String cardId, int amountOfMoneySpentInPreviousMonth) {
         this.dreams = dreams;
         this.dreamsMoneyCard = dreamsMoneyCard;
         this.cardId = cardId;
+        this.amountOfMoneySpentInPreviousMonth = amountOfMoneySpentInPreviousMonth;
+    }
+
+    public UserEntity(Long userId, List<DreamEntity> dreams, List<BankCardEntity> dreamsMoneyCard, String cardId, int amountOfMoneySpentInPreviousMonth) {
+        this.userId = userId;
+        this.dreams = dreams;
+        this.dreamsMoneyCard = dreamsMoneyCard;
+        this.cardId = cardId;
+        this.amountOfMoneySpentInPreviousMonth = amountOfMoneySpentInPreviousMonth;
     }
 
     public UserEntity() {
@@ -56,5 +66,13 @@ public class UserEntity {
 
     public void setCardId(String cardId) {
         this.cardId = cardId;
+    }
+
+    public int getAmountOfMoneySpentInPreviousMonth() {
+        return amountOfMoneySpentInPreviousMonth;
+    }
+
+    public void setAmountOfMoneySpentInPreviousMonth(int amountOfMoneySpentInPreviousMonth) {
+        this.amountOfMoneySpentInPreviousMonth = amountOfMoneySpentInPreviousMonth;
     }
 }
