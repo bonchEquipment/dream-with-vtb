@@ -13,12 +13,12 @@ public class BankCardEntity {
     String publicId; //"2991748655611904" - Публичный идентификатор продукта\
     Long userId;
     Long balance;
-    Long phoneNumber;
+    String phoneNumber;
 
     public BankCardEntity() {
     }
 
-    public BankCardEntity(Long cardId, String PAN, String embossingName, String cardExpiry, String publicId, Long userId, Long balance, Long phoneNumber) {
+    public BankCardEntity(Long cardId, String PAN, String embossingName, String cardExpiry, String publicId, Long userId, Long balance, String phoneNumber) {
         this.cardId = cardId;
         this.PAN = PAN;
         this.embossingName = embossingName;
@@ -29,7 +29,7 @@ public class BankCardEntity {
         this.phoneNumber = phoneNumber;
     }
 
-    public BankCardEntity(String PAN, String embossingName, String cardExpiry, String publicId, Long userId, Long balance, Long phoneNumber) {
+    public BankCardEntity(String PAN, String embossingName, String cardExpiry, String publicId, Long userId, Long balance, String phoneNumber) {
         this.PAN = PAN;
         this.embossingName = embossingName;
         this.cardExpiry = cardExpiry;
@@ -95,11 +95,11 @@ public class BankCardEntity {
         this.balance = balance;
     }
 
-    public Long getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(Long phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 }
