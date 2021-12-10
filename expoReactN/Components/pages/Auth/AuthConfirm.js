@@ -1,4 +1,4 @@
-import { Image, Pressable, StyleSheet, Text, View} from "react-native";
+import {Image, Pressable, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import React, {useState} from "react";
 import InteractiveTextInput from "react-native-text-input-interactive";
@@ -22,9 +22,9 @@ export default function AuthConfirm(){
             </View>
             <Text style={styles.titleText}>Вам пришел код</Text>
 
-            <Pressable style={styles.buttonOneStyle} onPress={authHandler}>
+            <TouchableOpacity style={styles.buttonOneStyle} onPress={authHandler}>
                 <Text style={styles.text}>Подтвердить</Text>
-            </Pressable>
+            </TouchableOpacity>
         </View>
 
     )

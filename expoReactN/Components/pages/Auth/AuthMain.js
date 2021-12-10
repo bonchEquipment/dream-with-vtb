@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {Button, Image, Pressable, StyleSheet, Text, View} from "react-native";
+import {Button, Image, Pressable, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import InteractiveTextInput from "react-native-text-input-interactive";
 
 export default function AuthMain({navigation}){
@@ -18,9 +18,9 @@ export default function AuthMain({navigation}){
             <View>
                 <InteractiveTextInput value={cardNumber} onChangeText={setCardNumber} mainColor="#1e72d9" placeholder='Введите номер карты'/>
             </View>
-            <Pressable style={styles.buttonOneStyle} onPress={loadScene}>
+            <TouchableOpacity style={styles.buttonOneStyle} onPress={loadScene}>
                 <Text style={styles.text}>Войти</Text>
-            </Pressable>
+            </TouchableOpacity>
         </View>
 
     )

@@ -4,7 +4,7 @@ import React from "react";
 export default function MakeDream(){
     return(
         <View style={styles.element} >
-            <Text>make</Text>
+           {/*<Text>Извините, не успели. Но на бэке логика есть.</Text>*/}
         </View>
     )
 }

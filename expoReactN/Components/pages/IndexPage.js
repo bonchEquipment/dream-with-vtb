@@ -1,4 +1,4 @@
-import {Image, Pressable, StyleSheet, Text, View} from "react-native";
+import {Image, Pressable, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import React from "react";
 
 const ButtonSep = () =>(
@@ -28,13 +28,13 @@ const IndexPage = ({navigation}) => {
              <ButtonSep/>
              <Text style={styles.titleText}>накопи на мечту {"\n" }с ВТБ</Text>
              <ButtonSep/>
-             <Pressable style={styles.buttonOneStyle}  onPress={loadScene}>
-                 <Text style={styles.text}> войти через ВТБ</Text>
-             </Pressable>
+             <TouchableOpacity style={styles.buttonOneStyle}  onPress={loadScene}>
+                 <Text style={styles.text}> Войти через ВТБ</Text>
+             </TouchableOpacity>
              <ButtonSep/>
-             <Pressable style={styles.buttonTwoStyle}>
+             <TouchableOpacity style={styles.buttonTwoStyle}>
                  <Text style={styles.text}> Инструкция</Text>
-             </Pressable>
+             </TouchableOpacity>
          </View>
 
      )

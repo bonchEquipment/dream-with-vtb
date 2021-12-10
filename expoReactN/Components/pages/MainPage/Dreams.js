@@ -16,13 +16,9 @@ export default function Dreams({navigation}) {
     }
 
     const [dreams, setDreams] = useState([
-        {text:"laptop",index:"1"},
-        {text:"adventure",index:"2"},
-        {text:"adventure",index:"3"},
-        {text:"adventure",index:"4"},
-        {text:"adventure",index:"5"},
-        {text:"adventure",index:"6"},
-        {text:"adventure",index:"7"}
+        {text:"MackBook",index:"1"},
+        {text:"Путешествие",index:"2"},
+        {text:"Микрофон", index:"3"},
     ])
     return (
         <View >

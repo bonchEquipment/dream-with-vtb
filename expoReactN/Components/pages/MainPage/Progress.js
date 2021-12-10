@@ -1,4 +1,4 @@
-import {Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {Image, Pressable, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import SemiCircleProgress from "../../SemiCircleProgress";
 import React from "react";
 
@@ -12,8 +12,8 @@ export default function Progress({navigation}){
 
         <View style={styles.content}>
             <View>
-                <SemiCircleProgress    circleRadius={100} percentage={35} progressWidth={10}  progressColor={"dodgerblue"} >
-                    <Text style={{ fontSize: 32, color: "dodgerblue" }}>35%</Text>
+                <SemiCircleProgress    circleRadius={100} percentage={100} progressWidth={10}  progressColor={"dodgerblue"} >
+                    <Text style={{ fontSize: 32, color: "black" }}>20000₽</Text>
                 </SemiCircleProgress>
             </View>
             <View style={styles.textContainer}>
@@ -25,6 +25,7 @@ export default function Progress({navigation}){
                     Это на 200% больше предыдущего месяца
                 </Text>
             </View>
+
         </View>
 
 
