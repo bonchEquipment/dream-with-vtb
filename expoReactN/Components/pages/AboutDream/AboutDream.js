@@ -4,7 +4,7 @@ import SemiCircleProgress from "../../SemiCircleProgress";
 import ProgressDream from "./ProgressDream";
 import ManageDream from "./ManageDream";
 
-export default function AboutDream() {
+export default function AboutDream({navigation}) {
 
     return (
         <View style={styles.viewStyle}>
@@ -17,7 +17,7 @@ export default function AboutDream() {
                 </View>
                 <View style={styles.dreamManage}>
                     <ProgressDream/>
-                    <ManageDream/>
+                    <ManageDream navigation={navigation}/>
                 </View>
         </View>
 

@@ -1,7 +1,12 @@
 import {Text, View, StyleSheet, Image, TouchableOpacity, Pressable, ToastAndroid} from "react-native";
 import React from "react";
 
-export default function ManageDream(){
+export default function ManageDream({navigation}){
+
+    const loadSetDreamScene = () =>{
+        navigation.navigate("SetDream")
+    }
+
     const some = ()=>{
         ToastAndroid.show("Не успели подвязать бэк к frontend", ToastAndroid.SHORT)
     }
@@ -12,7 +17,7 @@ export default function ManageDream(){
                     <Text style={{textAlign: "center",color:"dodgerblue",}}>Проверить цену на ЕКаталог</Text>
                 </TouchableOpacity>
             <View style={styles.buttonRow}>
-                <TouchableOpacity style={styles.buttonOneStyle} onPress={some}>
+                <TouchableOpacity style={styles.buttonOneStyle} onPress={loadSetDreamScene}>
                     <Text style={{textAlign: "center",color:"dodgerblue",}}>Изменить</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={some} style={styles.buttonTwoStyle}>

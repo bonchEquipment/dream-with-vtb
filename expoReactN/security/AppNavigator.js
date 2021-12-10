@@ -5,6 +5,7 @@ import {createStackNavigator} from "@react-navigation/stack";
 import ProfilePage from "../Components/pages/MainPage/ProfilePage";
 import AboutDream from "../Components/pages/AboutDream/AboutDream";
 import MakeDream from "../Components/pages/MakeDream/MakeDream";
+import SetDream from "../Components/pages/SetDream/SetDream";
 
 const Stack = createStackNavigator();
 
@@ -54,6 +55,17 @@ export const AppNavigator = () => {
                     component={MakeDream}
                     options={{
                         title: 'Создать мечту',
+                        cardStyle: {
+                            backgroundColor: 'white',
+                        }
+                    }
+                    }
+                />
+                <Stack.Screen
+                    name="SetDream"
+                    component={SetDream}
+                    options={{
+                        title: 'Изменить мечту',
                         cardStyle: {
                             backgroundColor: 'white',
                         }
