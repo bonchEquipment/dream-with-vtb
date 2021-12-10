@@ -2,7 +2,7 @@ package com.example.backend.entyties;
 
 import javax.persistence.*;
 
-@Entity(name = "bandCards")
+@Entity(name = "bankCards")
 public class BankCardEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -11,7 +11,30 @@ public class BankCardEntity {
     String embossingName; //"ИМЯ ФАМИЛИЯ"
     String cardExpiry; //"MM/yy" - Дата окончания действия карты
     String publicId; //"2991748655611904" - Публичный идентификатор продукта\
-    int userId;
+    Long userId;
+    Long balance;
+
+    public BankCardEntity() {
+    }
+
+    public BankCardEntity(Long cardId, String PAN, String embossingName, String cardExpiry, String publicId, Long userId, Long balance) {
+        this.cardId = cardId;
+        this.PAN = PAN;
+        this.embossingName = embossingName;
+        this.cardExpiry = cardExpiry;
+        this.publicId = publicId;
+        this.userId = userId;
+        this.balance = balance;
+    }
+
+    public BankCardEntity(String PAN, String embossingName, String cardExpiry, String publicId, Long userId, Long balance) {
+        this.PAN = PAN;
+        this.embossingName = embossingName;
+        this.cardExpiry = cardExpiry;
+        this.publicId = publicId;
+        this.userId = userId;
+        this.balance = balance;
+    }
 
     public String getPAN() {
         return PAN;
@@ -43,5 +66,29 @@ public class BankCardEntity {
 
     public void setPublicId(String publicId) {
         this.publicId = publicId;
+    }
+
+    public Long getCardId() {
+        return cardId;
+    }
+
+    public void setCardId(Long cardId) {
+        this.cardId = cardId;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public Long getBalance() {
+        return balance;
+    }
+
+    public void setBalance(Long balance) {
+        this.balance = balance;
     }
 }
