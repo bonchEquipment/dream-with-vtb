@@ -1,11 +1,11 @@
 
 import React from 'react';
-import MainStack from './security/navigation';
+import {Navigate} from './security/navigation';
 
 
 export default function App() {
     return (
-        <MainStack/>
+        <Navigate/>
     );
 }
 

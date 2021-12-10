@@ -17,7 +17,6 @@ import java.io.IOException;
 @RestController
 @RequestMapping("/auth")
 public class AuthorizationController {
-    private String cardNumber;
 
     @Autowired
     private UserService userService;
@@ -29,18 +28,19 @@ public class AuthorizationController {
 
 
     @GetMapping("/login")
-    public ResponseEntity<?> login() throws IOException, InterruptedException {
+    public ResponseEntity<?> login(@RequestParam String numberCard) throws IOException, InterruptedException {
         String token = getTokenApi();
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
-                .url("https://hackaton.bankingapi.ru/api/vtbid/v1/oauth2/authorize?scope=kiludtihh&redirect_uri=http://fuzupro.ca/guzal&state=ID&client_id=5368290233706524&response_type=code")
+                .url("https://hackaton.bankingapi.ru/api/vtbid/v1/oauth2/authorize?scope=kiludtihh&redirect_uri=http://fuzupro.ca/guzal&state=ID&client_id="+numberCard+"&response_type=code")
                 .get()
                 .addHeader("Authorization", "Bearer "+token)
                 .addHeader("accept", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
-        System.out.println(response.toString());
-        return ResponseEntity.accepted().body(response.code());
+        Integer code =(int)( Math.random() * (1000000-100000) ) + 100000;
+        System.out.println(response.code());
+        return ResponseEntity.accepted().body(code);
     }
 
     @GetMapping("/me")

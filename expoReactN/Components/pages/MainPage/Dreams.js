@@ -1,36 +1,56 @@
-import {Image, ScrollView, StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, View} from "react-native";
+import {
+    FlatList,
+    Image,
+    StyleSheet,
+    Text,
+    TouchableOpacity,
+    View,ScrollView
+} from "react-native";
 import React, {useState} from "react";
+import ListDream from "./ListDream";
 
 export default function Dreams({navigation}) {
-    const loadScene = () => {
-        navigation.navigate("Auth/confirm");
+    const loadSceneMakeDream = () => {
+        navigation.navigate("MakeDream");
 
     }
 
     const [dreams, setDreams] = useState([
-        {name:"laptop",key:"1"},{name:"adventure",key:"2"},
+        {text:"laptop",index:"1"},
+        {text:"adventure",index:"2"},
+        {text:"adventure",index:"3"},
+        {text:"adventure",index:"4"},
+        {text:"adventure",index:"5"},
+        {text:"adventure",index:"6"},
+        {text:"adventure",index:"7"}
     ])
     return (
+        <View >
+            <View style={styles.header}>
+                <View style={{flex: 0, flexDirection: 'row', justifyContent: 'flex-start'}}>
+                    <Text style={styles.headerText}>Мечты</Text>
+                </View>
 
-        <View style={styles.header}>
-            <View style={{flex: 0, flexDirection: 'row', justifyContent: 'flex-start'}}>
-                <Text style={styles.headerText}>Мечты</Text>
+                <View style={styles.manageDreams} style={{flex: 1, flexDirection: 'row', justifyContent: 'flex-end'}}>
+                    <TouchableOpacity onPress={loadSceneMakeDream}>
+                        <Image source={require('../../../assets/ManageDreams.png')} style={styles.manageDreams}/>
+                    </TouchableOpacity>
+                </View>
             </View>
-
-            <View style={styles.manageDreams} style={{flex: 1, flexDirection: 'row', justifyContent: 'flex-end'}}>
-                <TouchableOpacity onPress={loadScene}>
-                    <Image source={require('../../../assets/ManageDreams.png')} style={styles.manageDreams}/>
-                </TouchableOpacity>
+            <View style={styles.dreamsContainer}>
+                    <FlatList style={styles.container}
+                              contentContainerStyle={styles.children} data={dreams} keyExtractor={item => item.index} renderItem={
+                        ({item})=>(<ListDream navigation={navigation} el={item}/>)
+                    }/>
             </View>
-            <ScrollView>
-                {dreams.map(item=>(<View key={item.key}>
-                    <Text>item.name</Text>
-                </View>))}
-            </ScrollView>
         </View>
 
 
     )
+
+
+
+
 }
 
 
@@ -45,13 +65,15 @@ const styles = StyleSheet.create({
     headerText: {
         flex: 0,
         marginLeft: 10,
-        overflow: "hidden",
         fontSize: 30
     },
     manageDreams: {
         flex: 0,
         marginRight: 10,
         marginTop: 10,
-        overflow: "hidden",
+    },
+    dreamsContainer:{
+        marginTop:60,
     }
+
 })

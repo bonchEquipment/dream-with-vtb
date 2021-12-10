@@ -12,7 +12,7 @@ export default function Progress({navigation}){
 
         <View style={styles.content}>
             <View>
-                <SemiCircleProgress    circleRadius={100} percentage={35} progressWidth={5}   progressColor={"dodgerblue"} >
+                <SemiCircleProgress    circleRadius={100} percentage={35} progressWidth={10}  progressColor={"dodgerblue"} >
                     <Text style={{ fontSize: 32, color: "dodgerblue" }}>35%</Text>
                 </SemiCircleProgress>
             </View>
