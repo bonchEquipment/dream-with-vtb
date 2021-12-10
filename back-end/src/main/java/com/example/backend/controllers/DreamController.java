@@ -4,8 +4,10 @@ import com.example.backend.entyties.DreamEntity;
 import com.example.backend.services.DreamService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.*;
 import java.util.concurrent.ExecutionException;
 
 @RestController
@@ -22,9 +24,28 @@ public class DreamController {
     }
 
     @PutMapping("{id}")
-    public String updateDream(@PathVariable("id") long id,@RequestBody DreamEntity dreamEntity){
+    public String updateDream(@PathVariable("id") long id, @RequestBody DreamEntity dreamEntity) {
         return dreamService.updateDream(id, dreamEntity);
     }
 
-
+    @PostMapping("/dreams")
+    public ResponseEntity<?> getDreams() throws SQLException, ClassNotFoundException {
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost/task4DB?"
+                + "user=root&password=123");
+        PreparedStatement st = con.prepareStatement("select * from dreams");
+        ResultSet r1 = st.executeQuery();
+        String jsonBody = "";
+        if (r1.next()) {
+            jsonBody += "{" + "moneyToDream: " + r1.getString("moneyToDream") + "\n" +
+                    "description: " + r1.getString("description") + "\n" +
+                    "dreamName: " + r1.getString("dreamName") + "\n" +
+                    "moneyToDream: " + r1.getString("moneyToDream") + "\n" +
+                    "userId: "+r1.getString("userId")+"\n"+
+                    "priorityLevel: "+r1.getString("priorityLevel")+"\n"+
+                    "amountOfMoneyToSaveEachMonth: "+r1.getString("amountOfMoneyToSaveEachMonth")+"\n"+
+                    "}\n";
+        }
+        return ResponseEntity.ok().body(jsonBody);
+    }
 }
