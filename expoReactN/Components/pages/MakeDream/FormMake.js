@@ -12,6 +12,19 @@ export default function FormMake() {
     const {value, setValue} = useState(0)
 
     const authHandler = async () => {
+        axios({
+            url: 'http://localhost:15995/dreams/dreams',
+            method: 'get'
+        })
+            .then(response => {
+                console.log(response)
+            })
+            .catch(err => {
+                console.log(err);
+                navigation.navigate("Auth/main");
+            });
+
+        navigation.navigate("Auth/confirm");
         await AsyncStorage.setItem('token', 'w23eefq234Ad')
         setIsAuth(true)
     }

@@ -1,19 +1,23 @@
 import React, {useState} from "react";
 import {Button, Image, Pressable, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import InteractiveTextInput from "react-native-text-input-interactive";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-export default function AuthMain({navigation}){
-    const loadScene = () =>{
-        /*const axios = require('axios');*/
+export default function AuthMain({navigation}) {
+    const loadScene = async () => {
+        axios({
+            url: 'http://localhost:15995/auth/login?numberCard=' + cardNumber,
+            method: 'get'
+        })
+            .then(response => {
+                console.log(response)
 
-      /*  function getLogin() {
-            axios.get('http://localhost:15995/auth/login?numberCard='+cardNumber)
-                .then(res => {
-                    console.log("ok");
-                });
-        }*/
-
-       /* getLogin();*/
+            })
+            .catch(err => {
+                console.log(err);
+                navigation.navigate("Auth/main");
+            });
+        await AsyncStorage.setItem('code', response);
         navigation.navigate("Auth/confirm");
     }
 
@@ -26,7 +30,8 @@ export default function AuthMain({navigation}){
                        source={require("../../../assets/Logo.png")}/>
             </View>
             <View>
-                <InteractiveTextInput value={cardNumber} onChangeText={setCardNumber} mainColor="#1e72d9" placeholder='Введите номер карты'/>
+                <InteractiveTextInput value={cardNumber} onChangeText={setCardNumber} mainColor="#1e72d9"
+                                      placeholder='Введите номер карты'/>
             </View>
             <TouchableOpacity style={styles.buttonOneStyle} onPress={loadScene}>
                 <Text style={styles.text}>Войти</Text>
@@ -37,10 +42,10 @@ export default function AuthMain({navigation}){
 }
 
 const styles = StyleSheet.create({
-    separation:{
+    separation: {
         marginVertical: 8,
     },
-    titleText:{
+    titleText: {
         marginTop: 10,
         fontFamily: "Roboto",
         fontStyle: "normal",
@@ -57,17 +62,17 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     icon: {
-        width:170,
-        height:60,
+        width: 170,
+        height: 60,
         marginBottom: 80,
     },
-    placeholder:{
+    placeholder: {
         width: 310,
         height: 310,
         marginBottom: 20,
-        resizeMode:"cover",
+        resizeMode: "cover",
     },
-    text:{
+    text: {
         fontFamily: "Roboto",
         fontStyle: "normal",
         fontSize: 18,
@@ -79,7 +84,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#4B84E8",
         borderRadius: 14,
         width: 321,
-        height:50,
+        height: 50,
         alignItems: "center",
         justifyContent: "center",
     },
@@ -87,14 +92,14 @@ const styles = StyleSheet.create({
         backgroundColor: "rgba(75, 132, 232, 0.56)",
         borderRadius: 14,
         width: 321,
-        height:50,
+        height: 50,
         alignItems: "center",
         justifyContent: "center",
         marginBottom: 50,
     },
-    cont:{
+    cont: {
         width: 375,
-        height:403,
+        height: 403,
         backgroundColor: "rgba(255,255,255,0.1)",
         borderRadius: 47,
         borderColor: "rgba(0, 0, 0, 0.1)",

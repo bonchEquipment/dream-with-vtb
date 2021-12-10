@@ -9,6 +9,17 @@ export default function ProfilePage({navigation}){
     const { isAuth, setIsAuth } = useAuth()
 
     const authHandler = async () => {
+        axios({
+            url: 'http://localhost:15995/auth/logout',
+            method: 'get'
+        })
+            .then(response => {
+                console.log(response)
+            })
+            .catch(err => {
+                console.log(err);
+                navigation.navigate("Auth/main");
+            });
         await AsyncStorage.setItem('token', 'w23eefq234Ad')
         setIsAuth(false)
     }

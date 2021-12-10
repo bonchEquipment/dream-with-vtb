@@ -11,6 +11,7 @@ export default function AuthConfirm(){
 
     const authHandler = async () => {
         await AsyncStorage.setItem('token', 'w23eefq234Ad')
+        await AsyncStorage.getItem('code')
         setIsAuth(true)
     }
 
