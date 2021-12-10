@@ -1,8 +1,8 @@
 import {Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 
 import React, {useState} from "react";
-import SemiCircleProgress from "../SemiCircleProgress";
-import {useAuth} from "../../security/useAuth";
+import SemiCircleProgress from "../../SemiCircleProgress";
+import {useAuth} from "../../../security/useAuth";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function ProfilePage({navigation}){
@@ -20,7 +20,7 @@ export default function ProfilePage({navigation}){
 
             <View style={{flex: 1, flexDirection: 'row', justifyContent: 'flex-start'}}>
                 <TouchableOpacity underlayColor="#ffffff00"  onPress={authHandler}>
-                    <Image source={require('../../assets/logout.png')} style={styles.imageStyle}/>
+                    <Image source={require('../../../assets/logout.png')} style={styles.imageStyle}/>
                 </TouchableOpacity>
             <TouchableOpacity nderlayColor="#ffffff00"  onPress={authHandler}>
                 <Text style={{marginTop:18,marginLeft:10}}>Выйти</Text>

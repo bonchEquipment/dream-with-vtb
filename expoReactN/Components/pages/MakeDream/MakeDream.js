@@ -5,6 +5,7 @@ export default function MakeDream(){
     return(
         <View style={styles.element} >
            {/*<Text>Извините, не успели. Но на бэке логика есть.</Text>*/}
+
         </View>
     )
 }

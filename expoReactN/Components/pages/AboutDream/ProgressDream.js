@@ -1,6 +1,6 @@
 import {Text, View, StyleSheet, Image, TouchableOpacity} from "react-native";
 import React from "react";
-import SemiCircleProgress from "../SemiCircleProgress";
+import SemiCircleProgress from "../../SemiCircleProgress";
 
 export default function ProgressDream(){
     return(

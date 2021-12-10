@@ -2,9 +2,9 @@ import {NavigationContainer} from "@react-navigation/native";
 import MainPage from "../Components/pages/MainPage/MainPage";
 import React from "react";
 import {createStackNavigator} from "@react-navigation/stack";
-import ProfilePage from "../Components/pages/ProfilePage";
-import AboutDream from "../Components/pages/AboutDream";
-import MakeDream from "../Components/pages/MakeDream";
+import ProfilePage from "../Components/pages/MainPage/ProfilePage";
+import AboutDream from "../Components/pages/AboutDream/AboutDream";
+import MakeDream from "../Components/pages/MakeDream/MakeDream";
 
 const Stack = createStackNavigator();
 

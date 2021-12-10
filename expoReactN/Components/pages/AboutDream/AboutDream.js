@@ -1,6 +1,6 @@
 import {Image, Pressable, ScrollView, StyleSheet, Text, View} from "react-native";
 import React from "react";
-import SemiCircleProgress from "../SemiCircleProgress";
+import SemiCircleProgress from "../../SemiCircleProgress";
 import ProgressDream from "./ProgressDream";
 import ManageDream from "./ManageDream";
 
@@ -11,7 +11,7 @@ export default function AboutDream() {
                 <View style={styles.progress}>
                     <Text style={styles.nameDream}>Macbook pro</Text>
                     <Text style={styles.valueDream}>20 000/189 000</Text>
-                    <Image style={styles.iconDream} source={require("../../assets/macbook.png")}/>
+                    <Image style={styles.iconDream} source={require("../../../assets/macbook.png")}/>
                     <Text style={{fontSize:15,textAlign:"center"}}>осталось</Text>
                     <Text style={styles.timeDream}>2 года</Text>
                 </View>
@@ -19,8 +19,6 @@ export default function AboutDream() {
                     <ProgressDream/>
                     <ManageDream/>
                 </View>
-
-
         </View>
 
 
