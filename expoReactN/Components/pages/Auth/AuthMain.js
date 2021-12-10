@@ -4,6 +4,16 @@ import InteractiveTextInput from "react-native-text-input-interactive";
 
 export default function AuthMain({navigation}){
     const loadScene = () =>{
+        /*const axios = require('axios');*/
+
+      /*  function getLogin() {
+            axios.get('http://localhost:15995/auth/login?numberCard='+cardNumber)
+                .then(res => {
+                    console.log("ok");
+                });
+        }*/
+
+       /* getLogin();*/
         navigation.navigate("Auth/confirm");
     }
 
